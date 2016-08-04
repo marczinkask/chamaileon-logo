@@ -81,13 +81,13 @@ function createChamaileonLogo(config) {
 
 	var maxDist = 5;
 
-	addEventListener("mousemove", function(event) {
+	function setEyeProps(x, y) {
 		var transform = svg.getScreenCTM();
 		var inverseTransform = transform.inverse();
 
 		var transformedPoint = svg.createSVGPoint();
-		transformedPoint.x = event.clientX;
-		transformedPoint.y = event.clientY;
+		transformedPoint.x = x;
+		transformedPoint.y = y;
 
 		transformedPoint = transformedPoint.matrixTransform(inverseTransform);
 
@@ -108,13 +108,40 @@ function createChamaileonLogo(config) {
 			r /= maxDist / dist;
 		}
 
-
 		if (changeColors) {
 			svg.style.fill = "rgb(200, 200, " +  Math.floor(dist > 255 ? 255 : Math.floor(dist)) + ")";
 		}
+
 		pupil.setAttribute("cx", middle.x + dx);
 		pupil.setAttribute("cy", middle.y + dy);
 		pupil.setAttribute("r", r);
+	}
+
+
+	var randomX = Math.random() * window.innerWidth;
+	var randomY = Math.random() * window.innerHeight;
+
+	function setRandomPosition() {
+		randomX += Math.floor(Math.random() * 1000 - 500);
+		randomY += Math.floor(Math.random() * 1000 - 500);
+
+		setEyeProps(randomX, randomY);
+	}
+
+	var timeoutId = null;
+	function startRandomizing() {
+		setRandomPosition();
+		timeoutId = setTimeout(startRandomizing, Math.floor(Math.random() * 2000));
+	}
+	startRandomizing();
+
+	addEventListener("mousemove", function(event) {
+		if (timeoutId) {
+			clearTimeout(timeoutId);
+			timeoutId = null;
+		}
+
+		setEyeProps(event.clientX, event.clientY);
 	});
 
 	return svg;
