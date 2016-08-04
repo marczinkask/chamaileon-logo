@@ -1,6 +1,7 @@
 function createChamaileonLogo(config) {
 	config = config || {};
 	var eyeR = config.eyeR || 5.9367;
+	var withLogo = typeof config.withLogo === "undefined" ? true : config.withLogo;
 	var withText = config.withText;
 	var changeColors = config.changeColors;
 	var viewBox = config.viewBox;
@@ -26,8 +27,10 @@ function createChamaileonLogo(config) {
 	svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
 	svg.setAttribute("xml:space", "preserve");
 
-	if (withText) {
+	if (withLogo && withText) {
 		svg.setAttribute("viewBox", "0 0 469.1786 83.3113");
+	} else if (withText) {
+		svg.setAttribute("viewBox", "81.4629 0 469.1786 83.3113");
 	} else {
 		svg.setAttribute("viewBox", "0 0 81.4629 83.3113");
 	}
@@ -36,7 +39,9 @@ function createChamaileonLogo(config) {
 		svg.setAttribute("viewBox", viewBox);
 	}
 
-	svg.innerHTML = atSign;
+	if (withLogo) {
+		svg.innerHTML = atSign;
+	}
 
 	if (withText) {
 		svg.innerHTML += text;
@@ -79,7 +84,7 @@ function createChamaileonLogo(config) {
 		}
 		pupil.setAttribute("cx", middle.x + dx);
 		pupil.setAttribute("cy", middle.y + dy);
-		//pupil.setAttribute("r", r);
+		pupil.setAttribute("r", r);
 	});
 
 	return svg;
