@@ -1,8 +1,8 @@
 {
   "name": "chamaileon-logo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Logo versions and splashscreens for chamaileon.io",
-  "main": "main.js",
+  "main": "./dist/chamaileonLogo.js",
   "scripts": {
     "test": "gulp test"
   },
