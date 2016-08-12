@@ -1,4 +1,4 @@
-function createChamaileonLogo(config) {
+module.exports = function createChamaileonLogo(config) {
 	config = config || {};
 	var eyeR = config.eyeR || 5.9367;
 	var withLogo = typeof config.withLogo === "undefined" ? true : config.withLogo;
@@ -145,4 +145,4 @@ function createChamaileonLogo(config) {
 	});
 
 	return svg;
-}
+};

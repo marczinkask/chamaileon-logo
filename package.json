@@ -1,0 +1,31 @@
+{
+  "name": "chamaileon-logo",
+  "version": "1.0.0",
+  "description": "Logo versions and splashscreens for chamaileon.io",
+  "main": "main.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gyulanemeth@github.com/EDMdesigner/chamaileon-logo.git"
+  },
+  "author": "Gyula Németh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EDMdesigner/chamaileon-logo/issues"
+  },
+  "homepage": "https://github.com/EDMdesigner/chamaileon-logo#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jscs-stylish": "^1.4.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-jsonlint": "^1.1.2",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "partialify": "^3.1.6",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
