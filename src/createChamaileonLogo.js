@@ -133,7 +133,7 @@ module.exports = function createChamaileonLogo(config) {
 		setRandomPosition();
 		timeoutId = setTimeout(startRandomizing, Math.floor(Math.random() * 2000));
 	}
-	startRandomizing();
+	setTimeout(startRandomizing, 0);
 
 	addEventListener("mousemove", function(event) {
 		if (timeoutId) {
