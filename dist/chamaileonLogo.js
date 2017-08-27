@@ -10,7 +10,7 @@ module.exports = function createChamaileonLogo(config) {
 		x: 81.4629 / 2,
 		y: 83.3113 / 2
 	};
-
+	
 	function createPath(d) {
 		var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 		path.setAttribute("d", d);
@@ -59,7 +59,7 @@ module.exports = function createChamaileonLogo(config) {
 	svg.setAttribute("xml:space", "preserve");
 
 	if (withLogo && withText) {
-		svg.setAttribute("viewBox", "0 0 469.1786 83.3113");
+		svg.setAttribute("viewBox", "0 0 500 83.3113");
 	} else if (withText) {
 		svg.setAttribute("viewBox", "81.4629 0 469.1786 83.3113");
 	} else {
@@ -110,7 +110,7 @@ module.exports = function createChamaileonLogo(config) {
 		}
 
 		if (changeColors) {
-			svg.style.fill = "rgb(200, 200, " +  Math.floor(dist > 255 ? 255 : Math.floor(dist)) + ")";
+			svg.style.fill = "rgb( 200, 200, " +  Math.floor(dist > 255 ? 255 : Math.floor(dist)) + ")";
 		}
 
 		pupil.setAttribute("cx", middle.x + dx);
